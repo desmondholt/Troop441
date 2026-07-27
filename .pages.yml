@@ -3,11 +3,19 @@ media:
   output: /images
 
 content:
-  - name: homepage
-    label: "Homepage Content"
+  - name: troop_info
+    label: "Troop Settings & Links"
     type: file
-    path: "index.html"
+    path: "data.json"
     fields:
-      - name: body
-        label: "HTML Code"
-        type: code
+      - { name: meeting_time, label: "Meeting Time", type: string }
+      - { name: meeting_location, label: "Meeting Location", type: string }
+      - { name: troopmaster_url, label: "TroopMaster Portal URL", type: string }
+      - { name: calendar_embed_url, label: "Google Calendar Embed URL", type: string }
+      - { name: medical_form_url, label: "BSA Medical Form Link", type: string }
+      - { name: packing_list_url, label: "Campout Packing List Link", type: string }
+      - { name: permission_slip_url, label: "Permission Slip Link", type: string }
+      - { name: youth_protection_url, label: "Youth Protection Link", type: string }
+      - { name: summer_camp_album_url, label: "Summer Camp Album Link", type: string }
+      - { name: campouts_drive_url, label: "Campouts Drive Folder Link", type: string }
+      - { name: eagle_projects_url, label: "Eagle Projects Gallery Link", type: string }
