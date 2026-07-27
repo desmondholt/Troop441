@@ -26,9 +26,7 @@
             line-height: 1.6;
         }
 
-        /* Header & Hero Background */
         header {
-            /* Background image with semi-transparent dark overlay for text readability */
             background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
                         url('https://lh3.googleusercontent.com/d_img/410=w1600-h900') center/cover no-repeat;
             color: white;
@@ -73,7 +71,6 @@
             transform: translateY(-2px);
         }
 
-        /* Main Container */
         .container {
             max-width: 1100px;
             margin: 2rem auto;
@@ -83,7 +80,6 @@
             gap: 2rem;
         }
 
-        /* Card Component */
         .card {
             background: white;
             border-radius: 12px;
@@ -101,7 +97,6 @@
             gap: 0.5rem;
         }
 
-        /* Link Lists */
         .resource-list {
             list-style: none;
         }
@@ -127,7 +122,6 @@
             color: var(--primary-green);
         }
 
-        /* Calendar iFrame Responsive */
         .calendar-embed {
             position: relative;
             padding-bottom: 75%;
@@ -145,7 +139,6 @@
             height: 100%;
         }
 
-        /* Footer */
         footer {
             background-color: #1b263b;
             color: #e0e1dd;
@@ -168,8 +161,7 @@
         <h1>BSA TROOP 441</h1>
         <p>Christiana, Tennessee • Middle Tennessee Council</p>
         <div class="tm-banner">
-            <!-- Replace href with your TroopMaster Web Portal link -->
-            <a href="https://tmweb.troopmaster.com" target="_blank" class="btn-tm">⚜️ Log in to TroopMaster Web</a>
+            <a id="btn-troopmaster" href="#" target="_blank" class="btn-tm">⚜️ Log in to TroopMaster Web</a>
         </div>
     </header>
 
@@ -180,8 +172,7 @@
             <h2>📅 Upcoming Events & Calendar</h2>
             <p style="margin-bottom: 1rem; color: #666;">Troop meetings, court of honor, and monthly campout schedule.</p>
             <div class="calendar-embed">
-                <!-- Replace 'YOUR_CALENDAR_ID' with your Troop's public Google Calendar ID -->
-                <iframe src="https://calendar.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com&ctz=America%2FChicago" style="border:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                <iframe id="calendar-iframe" src="" style="border:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
             </div>
         </div>
 
@@ -189,10 +180,10 @@
         <div class="card">
             <h2>📄 Forms & Documents</h2>
             <ul class="resource-list">
-                <li><a href="#" target="_blank">📋 BSA Annual Health & Medical Record (Parts A, B, C)</a></li>
-                <li><a href="#" target="_blank">⛺ Standard Campout Packing List</a></li>
-                <li><a href="#" target="_blank">📝 Troop Activity Permission Slip</a></li>
-                <li><a href="#" target="_blank">🛡️ Youth Protection Policies & Guidelines</a></li>
+                <li><a id="link-medical" href="#" target="_blank">📋 BSA Annual Health & Medical Record (Parts A, B, C)</a></li>
+                <li><a id="link-packing" href="#" target="_blank">⛺ Standard Campout Packing List</a></li>
+                <li><a id="link-permission" href="#" target="_blank">📝 Troop Activity Permission Slip</a></li>
+                <li><a id="link-protection" href="#" target="_blank">🛡️ Youth Protection Policies & Guidelines</a></li>
             </ul>
         </div>
 
@@ -201,17 +192,17 @@
             <h2>📸 Photos & Media</h2>
             <p style="margin-bottom: 1rem; color: #666;">Check out photos from our recent outdoor adventures!</p>
             <ul class="resource-list">
-                <li><a href="#" target="_blank">🖼️ Summer Camp Shared Album</a></li>
-                <li><a href="#" target="_blank">📷 Monthly Campouts Drive Folder</a></li>
-                <li><a href="#" target="_blank">🦅 Eagle Scout Projects Gallery</a></li>
+                <li><a id="link-summer-camp" href="#" target="_blank">🖼️ Summer Camp Shared Album</a></li>
+                <li><a id="link-campouts" href="#" target="_blank">📷 Monthly Campouts Drive Folder</a></li>
+                <li><a id="link-eagle" href="#" target="_blank">🦅 Eagle Scout Projects Gallery</a></li>
             </ul>
         </div>
 
         <!-- Meeting Info & Contact -->
         <div class="card">
             <h2>📌 Meeting Info</h2>
-            <p><strong>When:</strong> Every Monday at 7:00 PM</p>
-            <p style="margin-top: 0.5rem;"><strong>Location:</strong> Christiana, TN</p>
+            <p><strong>When:</strong> <span id="text-meeting-time">Every Monday at 7:00 PM</span></p>
+            <p style="margin-top: 0.5rem;"><strong>Location:</strong> <span id="text-meeting-location">Christiana, TN</span></p>
             <hr style="margin: 1rem 0; border: none; border-top: 1px solid #eee;">
             <p>For recruitment or visitor inquiries, contact our Scoutmaster or Committee Chair.</p>
         </div>
@@ -222,6 +213,26 @@
         <p><strong>BSA Troop 441 — Christiana, TN</strong></p>
         <p class="scout-law">A Scout is Trustworthy, Loyal, Helpful, Friendly, Courteous, Kind, Obedient, Cheerful, Thrifty, Brave, Clean, and Reverent.</p>
     </footer>
+
+    <script>
+        // Dynamically load content from data.json
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                if (data.troopmaster_url) document.getElementById('btn-troopmaster').href = data.troopmaster_url;
+                if (data.calendar_embed_url) document.getElementById('calendar-iframe').src = data.calendar_embed_url;
+                if (data.medical_form_url) document.getElementById('link-medical').href = data.medical_form_url;
+                if (data.packing_list_url) document.getElementById('link-packing').href = data.packing_list_url;
+                if (data.permission_slip_url) document.getElementById('link-permission').href = data.permission_slip_url;
+                if (data.youth_protection_url) document.getElementById('link-protection').href = data.youth_protection_url;
+                if (data.summer_camp_album_url) document.getElementById('link-summer-camp').href = data.summer_camp_album_url;
+                if (data.campouts_drive_url) document.getElementById('link-campouts').href = data.campouts_drive_url;
+                if (data.eagle_projects_url) document.getElementById('link-eagle').href = data.eagle_projects_url;
+                if (data.meeting_time) document.getElementById('text-meeting-time').textContent = data.meeting_time;
+                if (data.meeting_location) document.getElementById('text-meeting-location').textContent = data.meeting_location;
+            })
+            .catch(error => console.error('Error loading troop data:', error));
+    </script>
 
 </body>
 </html>
