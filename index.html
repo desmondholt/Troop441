@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troop 441 | Christiana, TN</title>
+    <style>
+        :root {
+            --primary-green: #2e5a37;
+            --accent-gold: #d4a373;
+            --dark-khaki: #4a4e69;
+            --light-bg: #f8f9fa;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 2.5rem 1rem 1.5rem;
+            text-align: center;
+            border-bottom: 5px solid var(--accent-gold);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.2rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .tm-banner {
+            margin-top: 1.2rem;
+        }
+
+        .btn-tm {
+            background-color: #c1121f;
+            color: white;
+            padding: 0.6rem 1.4rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-tm:hover {
+            background-color: #780000;
+            transform: translateY(-2px);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Card Component */
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.8rem;
+            box-shadow: var(--card-shadow);
+            border-top: 4px solid var(--primary-green);
+        }
+
+        .card h2 {
+            color: var(--primary-green);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Link Lists */
+        .resource-list {
+            list-style: none;
+        }
+
+        .resource-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .resource-list a {
+            color: #2b2d42;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 0.6rem 0.8rem;
+            background: #f1f5f2;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .resource-list a:hover {
+            background: #e2ebe4;
+            color: var(--primary-green);
+        }
+
+        /* Calendar iFrame Responsive */
+        .calendar-embed {
+            position: relative;
+            padding-bottom: 75%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .calendar-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1b263b;
+            color: #e0e1dd;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+        }
+
+        .scout-law {
+            font-style: italic;
+            margin-top: 0.5rem;
+            color: var(--accent-gold);
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>BSA TROOP 441</h1>
+        <p>Christiana, Tennessee • Middle Tennessee Council</p>
+        <div class="tm-banner">
+            <!-- Replace href with your TroopMaster Web Portal link -->
+            <a href="https://tmweb.troopmaster.com" target="_blank" class="btn-tm">⚜️ Log in to TroopMaster Web</a>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Google Calendar Section -->
+        <div class="card" style="grid-column: span 1 / -1;">
+            <h2>📅 Upcoming Events & Calendar</h2>
+            <p style="margin-bottom: 1rem; color: #666;">Troop meetings, court of honor, and monthly campout schedule.</p>
+            <div class="calendar-embed">
+                <!-- Replace 'YOUR_CALENDAR_ID' with your Troop's public Google Calendar ID -->
+                <iframe src="https://calendar.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com&ctz=America%2FChicago" style="border:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+            </div>
+        </div>
+
+        <!-- Troop Documents -->
+        <div class="card">
+            <h2>📄 Forms & Documents</h2>
+            <ul class="resource-list">
+                <li><a href="#" target="_blank">📋 BSA Annual Health & Medical Record (Parts A, B, C)</a></li>
+                <li><a href="#" target="_blank">⛺ Standard Campout Packing List</a></li>
+                <li><a href="#" target="_blank">📝 Troop Activity Permission Slip</a></li>
+                <li><a href="#" target="_blank">🛡️ Youth Protection Policies & Guidelines</a></li>
+            </ul>
+        </div>
+
+        <!-- Photos & Media -->
+        <div class="card">
+            <h2>📸 Photos & Media</h2>
+            <p style="margin-bottom: 1rem; color: #666;">Check out photos from our recent outdoor adventures!</p>
+            <ul class="resource-list">
+                <li><a href="#" target="_blank">🖼️ Summer Camp Shared Album</a></li>
+                <li><a href="#" target="_blank">📷 Monthly Campouts Drive Folder</a></li>
+                <li><a href="#" target="_blank">🦅 Eagle Scout Projects Gallery</a></li>
+            </ul>
+        </div>
+
+        <!-- Meeting Info & Contact -->
+        <div class="card">
+            <h2>📌 Meeting Info</h2>
+            <p><strong>When:</strong> Every Monday at 7:00 PM</p>
+            <p style="margin-top: 0.5rem;"><strong>Location:</strong> Christiana, TN</p>
+            <hr style="margin: 1rem 0; border: none; border-top: 1px solid #eee;">
+            <p>For recruitment or visitor inquiries, contact our Scoutmaster or Committee Chair.</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p><strong>BSA Troop 441 — Christiana, TN</strong></p>
+        <p class="scout-law">A Scout is Trustworthy, Loyal, Helpful, Friendly, Courteous, Kind, Obedient, Cheerful, Thrifty, Brave, Clean, and Reverent.</p>
+    </footer>
+
+</body>
+</html>
